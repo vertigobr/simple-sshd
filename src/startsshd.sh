@@ -21,6 +21,7 @@ fi
 
 # disables password auth if asked
 if [[ "$KEYONLY" == "true" ]]; then
+    echo "disabling password authentication..."
     sed "s/^PasswordAuthentication.*/PasswordAuthentication no/g" -i /etc/ssh/sshd_config
 else
     sed "s/^PasswordAuthentication.*/PasswordAuthentication yes/g" -i /etc/ssh/sshd_config
