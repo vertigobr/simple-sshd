@@ -6,6 +6,8 @@ RUN yum install openssh-server openssh-clients passwd sudo -y && \
 
 ENV USERPWD secret
 ENV PUBLICKEY ""
+ENV KEYONLY false
+
 ADD src/*.sh /opt/
 
 RUN useradd -u 5001 -G users -m user && \
