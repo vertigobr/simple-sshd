@@ -11,7 +11,7 @@ ADD src/*.sh /opt/
 RUN useradd -u 5001 -G users -m user && \
     echo "$USERPWD" | passwd user --stdin && \
     chmod +x /opt/*.sh && \
-    /opt/generatekeys.sh && \
+    sh /opt/generatekeys.sh && \
     sed -i '/^session.*pam_loginuid.so/s/^session/# session/' /etc/pam.d/sshd && \
     sed -i 's/Defaults.*requiretty/#Defaults requiretty/g' /etc/sudoers
 
