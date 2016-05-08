@@ -3,19 +3,19 @@
 Simple SSHD container (no systemd)
 
 
-# Why this?
+## Why this?
 
 This image is meant to be used for a ssh login into a container and fiddle around. Sometimes you need these things.
 
-# Is it a Docker host?
+## Is it a Docker host?
 
 If you are looking for a way to use this container to control a Docker host please use "bacen/carina-sshd" instead.
 
-# What is installed?
+## What is installed?
 
 * SSHD (from yum repo)
 
-# Environment variables
+## Environment variables
 
 These variables can be set on "docker run":
 
@@ -23,7 +23,7 @@ These variables can be set on "docker run":
 * KEYONLY: if "true" user will only be able to login with a key.
 * USERPWD: password that will be set for user "user".
 
-# How to use (crude way)
+## How to use (crude way)
 
 This will run the sshd container on port 8022, accepting password "senha" for user "user".
 
@@ -41,7 +41,7 @@ To test the connection:
 ssh user@yourhost -p 8022
 ```
 
-# How to use (fancy way)
+## How to use (fancy way)
 
 This will run the sshd container on port 8022, accepting only key-based logins for user "user". The public key contents were drawn from your local "id_rsa.pub", but you can pick any other, of course.
 
@@ -66,7 +66,7 @@ Or, if you want to use another private key:
 ssh user@yourhost -p 8022 -i ~/.ssh/anotherkey
 ```
 
-# How to use (even more fancy)
+## How to use (even more fancy)
 
 You can run the container the fancy way (above) and configure your own ssh client to provide several convenient settings. You must insert this into your local "~/.ssh/config" (please replace "xxx.xxx.xxx.xxx" for your host's IP address):
 
