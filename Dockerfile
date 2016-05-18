@@ -11,6 +11,7 @@ RUN sh /opt/setbaserepo.sh && \
 
 ENV USERPWD secret
 ENV PUBLICKEY ""
+ENV PUBLICROOTKEY ""
 ENV KEYONLY false
 
 ADD src/*.sh /opt/

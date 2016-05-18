@@ -5,18 +5,24 @@
 [ -z "$USERPWD" ] && USERPWD="secret"
 echo "$USERPWD" | passwd user --stdin
 
-# gen keys if not present
-#if [ ! -f /etc/ssh/ssh_host_rsa_key ]
-
 # create .ssh folder
 mkdir -p /home/user/.ssh
 chmod 700 /home/user/.ssh
+mkdir -p /root/.ssh
+chmod 700 /root/.ssh
 
 # copies public key if non-empty
 if [ ! -z "$PUBLICKEY" ]; then
     echo "Adjusting public key..."
     echo "$PUBLICKEY" > /home/user/.ssh/authorized_keys
     chmod 600 /home/user/.ssh/authorized_keys
+fi
+
+# copies public key for root user
+if [ ! -z "$PUBLICROOTKEY" ]; then
+    echo "Adjusting public key for root..."
+    echo "$PUBLICROOTKEY" > /root/.ssh/authorized_keys
+    chmod 600 /root/.ssh/authorized_keys
 fi
 
 # disables password auth if asked

@@ -20,6 +20,7 @@ If you are looking for a way to use this container to control a Docker host plea
 These variables can be set on "docker run":
 
 * PUBLICKEY: you can set this to the content of a public key that will be pushed into "authorized_keys" for the user "user".
+* PUBLICROOTKEY: you can set this to the content of a public key that will be pushed into "authorized_keys" for the user "root".
 * KEYONLY: if "true" user will only be able to login with a key.
 * USERPWD: password that will be set for user "user".
 
@@ -43,27 +44,29 @@ ssh user@yourhost -p 8022
 
 ## How to use (fancy way)
 
-This will run the sshd container on port 8022, accepting only key-based logins for user "user". The public key contents were drawn from your local "id_rsa.pub", but you can pick any other, of course.
+This will run the sshd container on port 8022, accepting only key-based logins for users "user" and "root". The public key contents were drawn from your local "id_rsa.pub", but you can pick any other, of course.
 
 ```
 PUBLICKEY=`cat ~/.ssh/id_rsa.pub`
+PUBLICROOTKEY=`cat ~/.ssh/idanother.pub`
 docker run --name sshd -d \
     -p 8022:22 \
     -e "PUBLICKEY=$PUBLICKEY" \
+    -e "PUBLICROOTKEY=$PUBLICROOTKEY" \
     -e "KEYONLY=true" \
     vertigo/simple-sshd:latest
 ```
 
-To test the connection with the defautl private key (~/.ssh/id_rsa):
+To test the connection with the default private key (~/.ssh/id_rsa):
 
 ```
 ssh user@yourhost -p 8022
 ```
 
-Or, if you want to use another private key:
+Or, if you want to use another private key to login as root:
 
 ```
-ssh user@yourhost -p 8022 -i ~/.ssh/anotherkey
+ssh root@yourhost -p 8022 -i ~/.ssh/anotherkey
 ```
 
 ## How to use (even more fancy)
