@@ -1,3 +1,3 @@
 #!/bin/sh
-docker build -t bacen/sshd .
+docker build -t vertigo/simple-sshd .
 

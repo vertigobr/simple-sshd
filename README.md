@@ -9,7 +9,7 @@ This image is meant to be used for a ssh login into a container and fiddle aroun
 
 ## Is it a Docker host?
 
-If you are looking for a way to use this container to control a Docker host please use "bacen/carina-sshd" instead.
+If you are looking for a way to use this container to control a Docker host please use "vertigo/carina-sshd" instead.
 
 ## What is installed?
 
@@ -32,7 +32,7 @@ docker run --name sshd -d \
     -p 8022:22 \
     -e "USERPWD=senha" \
     -e "KEYONLY=false" \
-    bacen/sshd
+    vertigo/simple-sshd
 ```
 
 To test the connection:
@@ -51,7 +51,7 @@ docker run --name sshd -d \
     -p 8022:22 \
     -e "PUBLICKEY=$PUBLICKEY" \
     -e "KEYONLY=true" \
-    bacen/sshd:latest
+    vertigo/simple-sshd:latest
 ```
 
 To test the connection with the defautl private key (~/.ssh/id_rsa):

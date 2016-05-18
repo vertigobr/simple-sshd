@@ -1,7 +1,7 @@
 
-FROM centos
+FROM vertigo/docker-base
 
-RUN yum install wget openssh-server openssh-clients passwd sudo -y && \
+RUN yum install openssh-server openssh-clients passwd sudo -y && \
     yum clean all
 
 ENV USERPWD secret

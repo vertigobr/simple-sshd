@@ -7,5 +7,5 @@ docker run --name sshd -d \
     -p $SSHPORT:22 \
     -e "PUBLICKEY=$PUBLICKEY" \
     -e "KEYONLY=true" \
-    bacen/sshd:latest
+    vertigo/simple-sshd:latest
 
