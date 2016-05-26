@@ -5,11 +5,11 @@ Simple SSHD container (no systemd)
 
 ## Why this?
 
-This image is meant to be used for a ssh login into a container and fiddle around. Sometimes you need these things.
+This image is meant to be used for a ssh login into a container to fiddle around. You can use it as an interesting proof-of-concept. You can use it to gain convenient access to serverless environments like Carina. I don't know, sometimes you need these things.
 
 ## Is it a Docker host?
 
-If you are looking for a way to use this container to control a Docker host please use "vertigo/carina-sshd" instead.
+If you are looking for a way to use this container to control a Docker host please use "vertigo/carina-sshd" instead. It is based on this, but better tooled.
 
 ## What is installed?
 
